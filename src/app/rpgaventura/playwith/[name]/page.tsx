@@ -1,4 +1,5 @@
 'use client'
+import MiniGame from "@/components/RPG/Minigame"
 import Personagem from "@/model/Personagem"
 import { useSearchParams } from "next/navigation"
 
@@ -10,7 +11,11 @@ export default function PlayPerson() {
 
 
 
-  return <div className={`flex flex-col`}>{params.get('class')}</div>
+  return (
+  <div>
+    <MiniGame />
+  </div>
+  )
 }
 
 // ideia.

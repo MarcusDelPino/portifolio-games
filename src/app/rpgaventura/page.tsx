@@ -18,9 +18,9 @@ export default function Page() {
       className={`flex flex-col justify-center items-center w-full h-screen bg-[#6819b2] `}
     >
       <div
-        className={` text-center  bg-[#ab5cf5] w-2/5 p-10  shadow-xl shadow-black/30 rounded-lg text-6xl font-extrabold ${exo_2.className}`}
+        className={` text-center  bg-[#ab5cf5] w-[90%] md:w-[90%] lg:w-3/5  p-10  shadow-xl shadow-black/30 rounded-lg  font-extrabold ${exo_2.className}`}
       >
-        <h1 className={`mb-6`}>RPG Monster kill</h1>
+        <h1 className={`mb-6 text-4xl md:text-5xl lg:text-6xl`}>RPG Monster kill</h1>
         <div className={`font-light text-xl`}>
           <label htmlFor=''>
             <input
@@ -32,14 +32,14 @@ export default function Page() {
               className={`w-full h-10 placeholder:text-center outline-none shadow-md shadow-black/40 mb-6 text-black rounded-xl text-center`}
             />
           </label>
-          <div className={` flex justify-around items-center mb-6 gap-10 `}>
+          <div className={` flex justify-around items-center mb-6 gap-5 text-[10px] sm:text-[20px] md:text-xl`}>
             <label htmlFor='Knight' className={` flex items-center gap-2`}>
               <input
                 type='radio'
                 value={`Knight`}
                 checked={checkClass === "Knight"}
                 onChange={(e) => setCheckClass(e.target.value)}
-                className={`cursor-pointer w-10 h-10  appearance-none border border-white checked:border-none rounded-full checked:bg-[#6e79ff]`}
+                className={`cursor-pointer h-3 w-3 sm:w-5 sm:h-5 md:h-7 md:w-7   appearance-none border border-white checked:border-none rounded-full checked:bg-[#6e79ff]`}
               />
               : Knight
             </label>
@@ -49,7 +49,7 @@ export default function Page() {
                 value={`Mage`}
                 checked={checkClass === "Mage"}
                 onChange={(e) => setCheckClass(e.target.value)}
-                className={`cursor-pointer w-10 h-10 appearance-none border border-white checked:border-none rounded-full checked:bg-[#6819b2]`}
+                className={`cursor-pointer h-3 w-3 sm:w-5 sm:h-5 md:h-7 md:w-7  appearance-none border border-white checked:border-none rounded-full checked:bg-[#6819b2]`}
               />
               : Mage
             </label>
@@ -59,7 +59,7 @@ export default function Page() {
                 value={`Archer`}
                 checked={checkClass === "Archer"}
                 onChange={(e) => setCheckClass(e.target.value)}
-                className={`cursor-pointer w-10 h-10 appearance-none border border-white checked:border-none rounded-full checked:bg-[#ffd86b]`}
+                className={`cursor-pointer h-3 w-3 sm:w-5 sm:h-5 md:h-7 md:w-7  appearance-none border border-white checked:border-none rounded-full checked:bg-[#ffd86b]`}
               />
               : Archer
             </label>
@@ -69,7 +69,7 @@ export default function Page() {
                 value={`Assassin`}
                 checked={checkClass === "Assassin"}
                 onChange={(e) => setCheckClass(e.target.value)}
-                className={`cursor-pointer w-10 h-10 appearance-none border border-white checked:border-none rounded-full checked:bg-[#000000]`}
+                className={`cursor-pointer h-3 w-3 sm:w-5 sm:h-5 md:h-7 md:w-7  appearance-none border border-white checked:border-none rounded-full checked:bg-[#000000]`}
               />
               : Assassin
             </label>
