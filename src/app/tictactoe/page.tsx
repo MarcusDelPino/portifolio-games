@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Square from "@/components/SquareTTT"
+import Square from "@/components/TTT/SquareTTT"
 import { winningConfimation } from "@/function/WinnerGame"
-import Header from "@/components/HeaderTTT"
+import Header from "@/components/TTT/HeaderTTT"
 
 type Player = "X" | "O" | "draw" | null | string
 
