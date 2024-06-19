@@ -45,4 +45,12 @@ export  class Personagem {
   set life(value: number) {
     this.#life = value
   }
+
+  set atk(value: number){
+    this.#atk = value
+  }
+
+  set mana(value: number){
+    this.#mana = value
+  }
 }

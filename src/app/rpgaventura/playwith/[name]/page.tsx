@@ -9,7 +9,7 @@ export default function PlayPerson() {
     const personName = params.get('name')
     const personClass = params.get('class')
 
-    if(personName || personClass){
+    if(personName && personClass){
 
       return <MiniGame name={personName} classe={personClass} />
     }
