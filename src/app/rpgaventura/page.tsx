@@ -1,12 +1,10 @@
 "use client"
-import Personagem from "@/model/Personagem"
 import { Exo_2 } from "next/font/google"
 import Link from "next/link"
 import { useState } from "react"
 
 const exo_2 = Exo_2({ subsets: ["latin"], weight: ["800", "300"] })
 
-type Persona = Personagem
 
 export default function Page() {
   const [nameCharacter, setNameCharacter] = useState<string>("Just a Player")

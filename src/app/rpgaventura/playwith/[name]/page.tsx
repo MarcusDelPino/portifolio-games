@@ -1,19 +1,28 @@
 'use client'
 import MiniGame from "@/components/RPG/Minigame"
-import Personagem from "@/model/Personagem"
 import { useSearchParams } from "next/navigation"
 
-type Perso = Personagem
 
 export default function PlayPerson() {
   const params = useSearchParams()
-  console.log(params.get('name'))
+  const render = () => {
+    const personName = params.get('name')
+    const personClass = params.get('class')
+
+    if(personName || personClass){
+
+      return <MiniGame name={personName} classe={personClass} />
+    }
+
+    return <div>Paramentros errados</div>
+  }
+  // console.log(params.get('class'))
 
 
 
   return (
   <div>
-    <MiniGame />
+    {render()}
   </div>
   )
 }

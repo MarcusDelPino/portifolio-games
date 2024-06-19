@@ -1,9 +1,9 @@
-export default class Personagem {
-  #life: number
-  #straigth: number
-  #mana: number
+export  class Personagem {
   #name: string
   #clas: string
+  #life: number
+  #mana: number
+  #atk: number
   // level: number,
   // exp: number,
   // gold: number,
@@ -14,17 +14,17 @@ export default class Personagem {
   // inventory: Array<string>
 
   constructor(
-    clas: string,
     name: string,
+    clas: string,
     life = 1,
-    straigth = 1,
-    mana = 1
+    mana = 1,
+    atk = 1 
   ) {
-    this.#clas = clas
     this.#name = name
+    this.#clas = clas
     this.#life = life
-    this.#straigth = straigth
     this.#mana = mana
+    this.#atk = atk
   }
   get clas() {
     return this.#clas
@@ -35,8 +35,8 @@ export default class Personagem {
   get life() {
     return this.#life
   }
-  get straigth() {
-    return this.#straigth
+  get atk() {
+    return this.#atk
   }
   get mana() {
     return this.#mana
