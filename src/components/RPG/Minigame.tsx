@@ -1,11 +1,10 @@
 import Image from "next/image"
 import { Press_Start_2P } from "next/font/google"
 import { Personagem } from "@/model/Personagem"
+import { classeValue, combateValue } from "@/function/RpgPlayGame"
 import { useState } from "react"
-import { classeValue } from "@/function/RpgPlayGame"
 
 const press = Press_Start_2P({ subsets: ["latin"], weight: ["400"] })
-
 
 type MiniGameProps = {
   name: string
@@ -13,8 +12,29 @@ type MiniGameProps = {
 }
 
 export default function MiniGame({ name, classe }: MiniGameProps) {
-  const {life, mana, atk} = classeValue(classe) as any
-  const personagem = new Personagem(name, classe,life,mana,atk)
+  const [ level, setLevel ] = useState<number>(0)
+  const { life, mana, atk } = classeValue( classe ) as any
+  const [personagem, setPersonagem] = useState<Personagem>(
+    new Personagem(name, classe, life, mana, atk)
+  )
+
+ 
+
+  const atkBtn = () => {
+    const { dmg, classeLifeBase, monsterKill } = combateValue(atk, classe)
+    console.log(monsterKill)
+
+    if (monsterKill === true) {
+      setPersonagem((p) => {
+        return new Personagem(p.name, p.clas, classeLifeBase, p.mana, p.atk)
+      })
+    } else if (monsterKill === false && dmg !== undefined) {
+      const combate = personagem.life - dmg 
+      setPersonagem((p) => {
+        return new Personagem(p.name, p.clas, combate, p.mana, p.atk)
+      })
+    }
+  }
 
   return (
     <div
@@ -22,13 +42,19 @@ export default function MiniGame({ name, classe }: MiniGameProps) {
     >
       <div className={`flex bg-red-800 w-[90%]  md:w-3/4 h-3/4 rounded-xl `}>
         <div
-          className={`flex flex-col pl-5 gap-5 w-1/4 items-center justify-around text-[#6819b2]`}
+          className={`flex flex-col p-5 gap-5 w-1/4 items-center justify-around text-[#6819b2]`}
         >
           <div className={`text-white`}>{personagem.clas}</div>
           <div
             className={`flex bg-yellow-200 w-24 h-20 rounded-full border-2 shadow-xl shadow-black/40 items-center justify-around cursor-pointer border-white `}
+            onClick={atkBtn}
           >
             ATK
+          </div>
+          <div
+            className={`flex bg-yellow-200 w-24 h-20 rounded-full border-2 shadow-xl shadow-black/40 items-center justify-around cursor-pointer border-white `}
+          >
+            MAGIC
           </div>
           <div
             className={`flex bg-yellow-200 w-24 h-20 rounded-full border-2 shadow-xl shadow-black/40 items-center justify-around cursor-pointer border-white `}
@@ -70,6 +96,9 @@ export default function MiniGame({ name, classe }: MiniGameProps) {
               </div>
               <div>
                 <h1>mana: {personagem.mana}</h1>
+              </div>
+              <div>
+                <h1>Level: {personagem.level}</h1>
               </div>
             </div>
           </div>

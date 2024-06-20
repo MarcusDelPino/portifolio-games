@@ -4,7 +4,7 @@ export  class Personagem {
   #life: number
   #mana: number
   #atk: number
-  // level: number,
+  #level: number
   // exp: number,
   // gold: number,
   // weapon: string
@@ -18,13 +18,15 @@ export  class Personagem {
     clas: string,
     life = 1,
     mana = 1,
-    atk = 1 
+    atk = 1,
+    level = 0 
   ) {
     this.#name = name
     this.#clas = clas
     this.#life = life
     this.#mana = mana
     this.#atk = atk
+    this.#level = level
   }
   get clas() {
     return this.#clas
@@ -41,6 +43,9 @@ export  class Personagem {
   get mana() {
     return this.#mana
   }
+  get level() {
+    return this.#level
+  }
 
   set life(value: number) {
     this.#life = value
@@ -52,5 +57,9 @@ export  class Personagem {
 
   set mana(value: number){
     this.#mana = value
+  }
+  
+  set level(value: number){
+    this.#level = value
   }
 }
