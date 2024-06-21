@@ -21,19 +21,8 @@ export default function MiniGame({ name, classe }: MiniGameProps) {
  
 
   const atkBtn = () => {
-    const { dmg, classeLifeBase, monsterKill } = combateValue(atk, classe)
-    console.log(monsterKill)
-
-    if (monsterKill === true) {
-      setPersonagem((p) => {
-        return new Personagem(p.name, p.clas, classeLifeBase, p.mana, p.atk)
-      })
-    } else if (monsterKill === false && dmg !== undefined) {
-      const combate = personagem.life - dmg 
-      setPersonagem((p) => {
-        return new Personagem(p.name, p.clas, combate, p.mana, p.atk)
-      })
-    }
+    const PROVISORIO = combateValue(atk, classe)
+    
   }
 
   return (

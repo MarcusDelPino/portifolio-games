@@ -1,4 +1,5 @@
-export const classeValue = (classeValues: string) => {
+
+export const classeValue = (classeValues: string, level: number = 0) => {
     switch (classeValues) {
         case "Knight":
             return { atk: 10, life: 20, mana: 4}
@@ -14,21 +15,18 @@ export const classeValue = (classeValues: string) => {
 }
 
 const monsterAtk = () => {
-    const random = Math.round(Math.random() * 29 + 1)
-    console.log(random)
-    return random
+    const lifeMonster = Math.round(Math.random() * 29 + 1)
+    const dmgMonster = Math.round(Math.random() * 14 + 1)
+    console.log(lifeMonster, dmgMonster)
+    return { lifeMonster, dmgMonster}
 }
 
 export const combateValue = (atk: number, classe:string) => {
-    const monster = monsterAtk()
-    if(atk > monster){
-        console.log("Monstro morreu")
-        console.log(atk - monster, "Dano excedente")
-        return {classeLifeBase: classeValue(classe)?.life, monsterKill: true}
-    }else{
-        console.log("Você sofreu este dano", monster - atk)
-        const dmg = (monster - atk) / 2
-        return {dmg, monsterKill:false}
+    let { lifeMonster, dmgMonster} = monsterAtk()
+    
+    if(lifeMonster > 0){
+        
     }
+    
 
 }
